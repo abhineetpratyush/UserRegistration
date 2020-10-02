@@ -6,6 +6,7 @@ public class UserRegistration {
 	private String lastName;
 	private String emailId;
 	private String mobileNo;
+	private String password;
 
 	private void addFirstName() {
 		boolean validCounter = false;
@@ -21,7 +22,7 @@ public class UserRegistration {
 				System.out.println("Invalid. Please enter again!");
 		} while(!validCounter);
 	}
-	
+
 	private void addLastName() {
 		boolean validCounter = false;
 		Scanner sc = new Scanner(System.in);
@@ -36,7 +37,7 @@ public class UserRegistration {
 				System.out.println("Invalid. Please enter again!");
 		} while(!validCounter);
 	}
-	
+
 	private void addEmail() {
 		boolean validCounter = false;
 		Scanner sc = new Scanner(System.in);
@@ -51,7 +52,7 @@ public class UserRegistration {
 				System.out.println("Invalid. Please enter again!");
 		} while(!validCounter);
 	}
-	
+
 	private void addMobile() {
 		boolean validCounter = false;
 		Scanner sc = new Scanner(System.in);
@@ -65,14 +66,29 @@ public class UserRegistration {
 			else
 				System.out.println("Invalid. Please enter again!");
 		} while(!validCounter);
-		sc.close();
 	}
-	
+
+	private void addPassword() {
+		boolean validCounter = false;
+		Scanner sc = new Scanner(System.in);
+		do {
+			System.out.println("Password: ");
+			password = sc.nextLine();
+			if(Pattern.matches("^.{8,}$", password)) {
+				validCounter = true;
+				System.out.println("Valid!");
+			}
+			else
+				System.out.println("Invalid. Please enter again!");
+		} while(!validCounter);
+	}
+
 	public static void main(String[] args) {
 		UserRegistration userOne = new UserRegistration();
 		userOne.addFirstName();
 		userOne.addLastName();
 		userOne.addEmail();
 		userOne.addMobile();
+		userOne.addPassword();
 	}
 }
