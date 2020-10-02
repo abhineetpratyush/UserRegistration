@@ -74,7 +74,7 @@ public class UserRegistration {
 		do {
 			System.out.println("Password: ");
 			password = sc.nextLine();
-			if(Pattern.matches("^(?=.*[A-Z]).{8,}$", password)) {
+			if(Pattern.matches("^(?=.*[A-Z])(?=.*[0-9]).{8,}$", password)) {
 				validCounter = true;
 				System.out.println("Valid!");
 			}
